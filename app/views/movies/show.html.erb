@@ -1,0 +1,12 @@
+<% if notice %>
+  <p style="color: green"><%= notice %></p>
+<% end %>
+
+<h1><%= @movie.title %></h1>
+
+<p><strong>Rating:</strong> <%= @movie.rating %></p>
+<p><strong>Release date:</strong> <%= @movie.release_date&.strftime('%B %d, %Y') %></p>
+<p><strong>Description:</strong> <%= @movie.description %></p>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back to all movies', movies_path %>

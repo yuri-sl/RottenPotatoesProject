@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//mnt/c/Users/Yuri/RubymineProjects/**)",
+      "Bash(ruby --version)",
+      "Bash(bundle exec:*)",
+      "Bash(ls /mnt/)",
+      "Read(//mnt/**)",
+      "Bash(bundle check:*)"
+    ]
+  }
+}
