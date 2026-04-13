@@ -1,29 +1,57 @@
-<h1>Rotten Potatoes</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Rating</th>
-    <th>Release Date</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @movies.each do |movie| %>
-    <tr>
-      <td><%= movie.title %></td>
-      <td><%= movie.rating %></td>
-      <td><%= movie.release_date&.strftime('%B %d, %Y') %></td>
-      <td>
-        <%= link_to 'Show', movie_path(movie) %> |
-        <%= link_to 'Edit', edit_movie_path(movie) %> |
-        <%= link_to 'Delete', movie_path(movie), data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
-      </td>
-    </tr>
+<div class="d-flex align-items-center mb-4">
+  <h1 class="mb-0" style="color:#e63946;">All Movies</h1>
+  <% if @movies.any? %>
+    <span class="movie-count-badge"><%= @movies.count %></span>
   <% end %>
-  </tbody>
-</table>
+</div>
 
-<br>
-<%= link_to 'Add a new movie', new_movie_path %>
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <span>🎬 Movie Library</span>
+    <%= link_to '+ Add Movie', new_movie_path, class: 'btn btn-primary btn-sm' %>
+  </div>
+  <div class="card-body p-0">
+    <% if @movies.empty? %>
+      <div class="empty-state">
+        <span class="empty-icon">🍿</span>
+        <p class="lead text-muted">No movies yet. Add one to get started!</p>
+        <%= link_to '+ Add your first movie', new_movie_path, class: 'btn btn-primary' %>
+      </div>
+    <% else %>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Rating</th>
+              <th>Release Date</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @movies.each do |movie| %>
+              <tr>
+                <td>
+                  <%= link_to movie.title, movie_path(movie), style: 'color:#000000; text-decoration:none; font-weight:600;' %>
+                </td>
+                <td>
+                  <% css_class = %w[G PG PG-13 R NC-17].include?(movie.rating) ? movie.rating.gsub('-','').gsub(' ','') : 'other' %>
+                  <span class="badge-rating badge-<%= movie.rating&.gsub('-','') || 'other' %>"><%= movie.rating || 'NR' %></span>
+                </td>
+                <td><%= movie.release_date&.strftime('%B %d, %Y') || '—' %></td>
+                <td class="text-end">
+                  <%= link_to 'View', movie_path(movie), class: 'btn btn-action btn-show' %>
+                  <%= link_to 'Edit', edit_movie_path(movie), class: 'btn btn-action btn-edit' %>
+                  <%= link_to 'Delete', movie_path(movie),
+                        method: :delete,
+                        data: { turbo_method: :delete, turbo_confirm: 'Delete this movie?' },
+                        class: 'btn btn-action btn-delete' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+  </div>
+</div>

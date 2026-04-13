@@ -1,12 +1,34 @@
-<% if notice %>
-  <p style="color: green"><%= notice %></p>
-<% end %>
+<div class="mb-3">
+  <%= link_to '← Back to all movies', movies_path, style: 'color:#aaa; text-decoration:none;' %>
+</div>
 
-<h1><%= @movie.title %></h1>
+<div class="movie-detail-card">
+  <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+    <div>
+      <h1 class="movie-title"><%= @movie.title %></h1>
+      <div class="movie-meta">
+        <% if @movie.release_date %>
+          📅 <%= @movie.release_date.strftime('%B %d, %Y') %>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <% css_class = @movie.rating&.gsub('-', '') || 'other' %>
+      <span class="badge-rating badge-<%= css_class %>" style="font-size:1rem; padding: 6px 14px;">
+        <%= @movie.rating || 'NR' %>
+      </span>
+    </div>
+  </div>
 
-<p><strong>Rating:</strong> <%= @movie.rating %></p>
-<p><strong>Release date:</strong> <%= @movie.release_date&.strftime('%B %d, %Y') %></p>
-<p><strong>Description:</strong> <%= @movie.description %></p>
+  <% if @movie.description.present? %>
+    <hr style="border-color:#444; margin: 1.5rem 0;">
+    <p class="movie-description"><%= @movie.description %></p>
+  <% end %>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back to all movies', movies_path %>
+  <div class="mt-4 d-flex gap-2">
+    <%= link_to 'Edit', edit_movie_path(@movie), class: 'btn btn-edit btn-action', style: 'padding: 6px 18px; font-size:0.9rem;' %>
+    <%= link_to 'Delete', movie_path(@movie),
+          data: { turbo_method: :delete, turbo_confirm: 'Delete this movie?' },
+          class: 'btn btn-delete btn-action', style: 'padding: 6px 18px; font-size:0.9rem;' %>
+  </div>
+</div>

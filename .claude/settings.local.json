@@ -6,7 +6,17 @@
       "Bash(bundle exec:*)",
       "Bash(ls /mnt/)",
       "Read(//mnt/**)",
-      "Bash(bundle check:*)"
+      "Bash(bundle check:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(tasklist /FI 'PID eq 29852')",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w %{http_code} http://localhost:3000/movies)",
+      "Bash(taskkill /PID 29852 /F)",
+      "Bash(cmd /c \"taskkill /PID 29852 /F\")",
+      "Bash(cmd /c \"netstat -ano\")",
+      "Bash(curl -v http://localhost:3000/)",
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 3000 | Select-Object LocalPort, OwningProcess\" 2>&1)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\" http://localhost:3000/)"
     ]
   }
 }

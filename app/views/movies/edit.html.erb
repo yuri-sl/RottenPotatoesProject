@@ -1,3 +1,10 @@
-<h1>Edit movie</h1>
-<%= render 'form', movie: @movie %>
-<%= link_to 'Back', movie_path(@movie) %>
+<div class="mb-3">
+  <%= link_to '← Back to movie', movie_path(@movie), style: 'color:#aaa; text-decoration:none;' %>
+</div>
+
+<div class="card">
+  <div class="card-header">✏️ Edit: <%= @movie.title %></div>
+  <div class="card-body" style="padding: 2rem;">
+    <%= render 'form', movie: @movie %>
+  </div>
+</div>
