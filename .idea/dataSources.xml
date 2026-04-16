@@ -8,6 +8,7 @@
       <jdbc-url>jdbc:sqlite:C:\Users\Yuri\RubymineProjects\RottenPotatoes\storage\development.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+<<<<<<< Updated upstream
     <data-source source="LOCAL" name="RottenPotatoes: development" uuid="4a3a43d9-ede3-4f1b-b3c6-864ceb870a2d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -24,6 +25,13 @@
       <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/storage/test.sqlite3</jdbc-url>
+=======
+    <data-source source="LOCAL" name="identifier.sqlite" uuid="0d138bb1-ae58-449e-995d-bace57cbf619">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:identifier.sqlite</jdbc-url>
+>>>>>>> Stashed changes
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
