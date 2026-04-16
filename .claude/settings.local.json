@@ -6,7 +6,20 @@
       "Bash(bundle exec:*)",
       "Bash(ls /mnt/)",
       "Read(//mnt/**)",
-      "Bash(bundle check:*)"
+      "Bash(bundle check:*)",
+      "Bash(gem --version)",
+      "Bash(bundle --version)",
+      "Bash(rbenv --version)",
+      "Bash(rvm --version)",
+      "Read(//home/yoru/.rbenv/**)",
+      "Read(//home/yoru/.rvm/**)",
+      "Read(//usr/local/bin/**)",
+      "Read(//usr/bin/**)",
+      "Bash(apt-cache show:*)",
+      "Bash(apt-cache search:*)",
+      "Bash(git clone:*)",
+      "Bash(sudo apt-get:*)",
+      "Bash(dpkg -l)"
     ]
   }
 }
