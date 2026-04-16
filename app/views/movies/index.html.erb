@@ -42,9 +42,9 @@
                 <td class="text-end">
                   <%= link_to 'View', movie_path(movie), class: 'btn btn-action btn-show' %>
                   <%= link_to 'Edit', edit_movie_path(movie), class: 'btn btn-action btn-edit' %>
-                  <%= link_to 'Delete', movie_path(movie),
+                  <%= button_to 'Delete', movie_path(movie),
                         method: :delete,
-                        data: { turbo_method: :delete, turbo_confirm: 'Delete this movie?' },
+                        form: { data: { turbo_confirm: 'Delete this movie?' } },
                         class: 'btn btn-action btn-delete' %>
                 </td>
               </tr>
