@@ -7,14 +7,14 @@
 
 <div class="card">
   <div class="card-header d-flex justify-content-between align-items-center">
-    <span>🎬 Movie Library</span>
+    <span>Movie Library</span>
     <%= link_to '+ Add Movie', new_movie_path, class: 'btn btn-primary btn-sm' %>
   </div>
   <div class="card-body p-0">
     <% if @movies.empty? %>
       <div class="empty-state">
         <span class="empty-icon">🍿</span>
-        <p class="lead text-muted">No movies yet. Add one to get started!</p>
+        <p style="color:#ffffff;">No movies yet. Add one to get started!</p>
         <%= link_to '+ Add your first movie', new_movie_path, class: 'btn btn-primary' %>
       </div>
     <% else %>
