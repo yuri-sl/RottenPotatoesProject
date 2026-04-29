@@ -32,3 +32,6 @@
 /config/*.key
 .claude/
 /log/
+/.github
+/.kamal
+/.claude

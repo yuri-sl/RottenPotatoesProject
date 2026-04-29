@@ -22,9 +22,9 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>Title</th>
+              <th><%= link_to "Título", movies_path(sort: "title"), class: ("sorted" if @sort == "title") %></th>
               <th>Rating</th>
-              <th>Release Date</th>
+              <th><%= link_to "Data de lançamento", movies_path(sort:"release_date"), class: ("sorted" if @sort == "release_date") %></th>
               <th class="text-end">Actions</th>
             </tr>
           </thead>

@@ -2,7 +2,14 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all
+    @sort = params[:sort]
+    allowed_sort = %w[title release_date]
+
+    if allowed_sort.include?(@sort)
+      @movies = Movie.order(@sort)
+    else
+      @movies = Movie.all
+    end
     render :index
   end
 
